@@ -13,6 +13,11 @@ namespace MandevilleCnc.Web.Controllers
             return View();
         }
 
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View();

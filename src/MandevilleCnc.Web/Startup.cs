@@ -44,7 +44,7 @@ namespace MandevilleCnc.Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
             }
 
             app.UseStaticFiles();
@@ -53,7 +53,8 @@ namespace MandevilleCnc.Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{action=Index}",
+                    defaults: new { Controller = "Home" });
             });
         }
     }

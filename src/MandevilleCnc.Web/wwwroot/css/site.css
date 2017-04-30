@@ -31,13 +31,31 @@ nav.navbar {
     color: rgba(255, 255, 255, 1) !important;
 }
 
+.btn:disabled {
+  color: #666 !important;
+}
+
+.btn:hover:disabled {
+  background-color: #fff !important;
+}
+
+.modal-footer {
+    padding: 15px !important;
+}
+
 /************************* Bootstrap Mixins ********************************/
 @media screen and (max-width:767px) {
-   .btn-block-xs { width: 100%; display:block; }
+    .btn-block-xs {
+        width: 100% !important;
+        display: block !important;
+    }
 }   
 
 @media screen and (max-width:992px) {
-   .btn-block-sm { width: 100%; display:block; }
+    .btn-block-sm {
+        width: 100% !important;
+        display: block !important;
+    }
 } 
 
 .icon-info {

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace MandevilleCnc.Web.Models
 {
-    public class RecaptchaResponse
+    public class RecaptchaResponseModel
     {
         public bool Success { get; set; }
 
         [JsonProperty("error-codes")]
         public ICollection<string> ErrorCodes { get; set; }
 
-        public RecaptchaResponse()
+        public RecaptchaResponseModel()
         {
             ErrorCodes = new HashSet<string>();
         }

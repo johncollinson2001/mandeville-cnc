@@ -27,7 +27,7 @@ namespace MandevilleCnc.Web.Helpers
 
                 if (!string.IsNullOrWhiteSpace(result))
                 {
-                    var obj = JsonConvert.DeserializeObject<RecaptchaResponse>(result);
+                    var obj = JsonConvert.DeserializeObject<RecaptchaResponseModel>(result);
                     return obj.Success;
                 }
             }

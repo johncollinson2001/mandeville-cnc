@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="mdv-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>Contact.</h1>
+                <h4 class="sub-title">You can find all our contact details below. We'd love to hear from you.</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mdv-page-content">
+    <div class="container-fluid">
+        <div class="well">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2>Address</h2>
+                            <p>Mandeville CNC Routing is a subsidary of Mandeville Joinery Co.</p>
+                            <p>
+                                <strong>
+                                    tel: 01935 83861<br />
+                                    mob: 07974 793588<br />
+                                    email: info@mandevillejoinery.com
+                                </strong>
+                            </p>
+                            <p>
+                                Unit 4 Townsend Buildings,<br />
+                                Melbury Osmond,<br />
+                                Dorset,<br />
+                                UK,<br />
+                                DT2 0LP
+                            </p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <iframe class="mdv-map" width="100%" height="450" frameborder="0" style="border:0"
+                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDHBx9zJk3cvUALtGmgD0hyezU3eawQj_c&q=Mandeville%20Joinery,DT2%200LP"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Contact Form</h2>
+                    <div class="row">
+                        @Html.Partial("_ContactForm", new MessageModel())
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -9,7 +9,7 @@
                 <h1>Quality. Excellence. Service.</h1>
                 <h4>Here at Mandeville CNC Routing, you can expect the best. Our team have years of hard earned experience in wood based manufacturing which ensures you receive a high quality service at a competitive price.</h4>
                 <br>
-                <a href="javascript:void(0)" class="btn btn-raised btn-lg btn-success">Get a Quote</a>
+                <a href="@Url.Action("GetAQuote", "Home")" class="btn btn-raised btn-lg btn-success">Get a Quote</a>
             </div>
         </div>
     </div>
@@ -64,7 +64,7 @@
                     <p class="text-center">Lorem ipsum dolor sit amet, no quo saepe impedit atomorum. Mei ei atomorum consulatu adversarium, id fugit eligendi molestie pro, mel ea dicam ubique. Cu pro ocurreret dissentias, ne ius assum quidam delicatissimi.</p>
 
                     <div class="row">
-                        @Html.Partial("_BasicContactForm", new BasicMessageModel())
+                        @Html.Partial("_ContactForm", new MessageModel())
                     </div>
                 </div>
             </div>

@@ -64,8 +64,8 @@
             <nav>
                 <ul>
                     <li><a href="@Url.Action("AboutUs", "Home")">About Us</a></li>
-                    <li><a href="javascript:void(0)">Get a Quote</a></li>
-                    <li><a href="javascript:void(0)">Contact</a></li>
+                    <li><a href="@Url.Action("GetAQuote", "Home")">Get a Quote</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
                 </ul>
             </nav>
             <div class="copyright pull-right">
@@ -75,6 +75,7 @@
     </footer>
 
     @* Scripts *@
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="@Url.Content("~/lib/jquery/dist/jquery.js")"></script>
     <script src="@Url.Content("~/lib/bootstrap/dist/js/bootstrap.js")"></script>
     <script src="@Url.Content("~/lib/bootstrap-material-design/dist/js/material.js")"></script>

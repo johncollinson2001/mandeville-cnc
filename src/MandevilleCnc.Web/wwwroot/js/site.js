@@ -15,11 +15,14 @@
     $window.scroll(function () {        
         var scrolledAmount = $(this).scrollTop();
 
+        // The vertical px value on which the navbar styling is complete
+        var navbarStylingCompleteOn = initialWindowHeight - 250; // 250 = fairly arbitrary value
+
         // Compute new values relative to how far the user has scrolled
-        var newBackgroundAlpha = scrolledAmount >= initialWindowHeight 
-            ? 1 : Math.pow((1 / initialWindowHeight) * scrolledAmount, 0.3);
-        var newPaddingTop = scrolledAmount >= initialWindowHeight
-            ? 0 : Math.round(initialNavbarPaddingTop - ((initialNavbarPaddingTop / initialWindowHeight) * scrolledAmount));
+        var newBackgroundAlpha = scrolledAmount >= navbarStylingCompleteOn
+            ? 1 : Math.pow((1 / navbarStylingCompleteOn) * scrolledAmount, 0.3); // Math.pow introduces a parabola curve to the calculation
+        var newPaddingTop = scrolledAmount >= navbarStylingCompleteOn
+            ? 0 : Math.round(initialNavbarPaddingTop - ((initialNavbarPaddingTop / navbarStylingCompleteOn) * scrolledAmount));
 
         // Set new css on the navbar
         $navbar

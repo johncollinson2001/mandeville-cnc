@@ -60,6 +60,29 @@ nav.navbar {
     color: #f44336;
 }
 
+/*********************** Custom Generic Classes ****************************/
+
+/* Raised Image **************************************/
+.mdv-img-raised {
+    min-height: 100%; 
+    width: auto;
+    box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
+    margin: 20px 0;
+}
+
+/* Raised Image **************************************/
+.mdv-paragraph-header {
+    margin-top: 20px;
+    font-weight: 400 !important;
+}
+
+/* Map ***********************************************/
+.mdv-map {
+    border-radius: 6px;
+    box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
+    margin: 10px 0;
+}
+
 /************************** Custom Components ******************************/
 
 /* Page Header ***************************************/
@@ -119,7 +142,7 @@ nav.navbar {
 
 /* Footer ********************************************/
 footer {
-    padding: 5px 0 15px;
+    padding: 15px 0 25px;
 }
 
 footer nav ul {
@@ -167,14 +190,5 @@ footer .copyright {
     line-height: 1.5em;
     text-transform: uppercase;
     font-weight: 500;
-}
-/*****************************************************/
-
-/* Raised Image **************************************/
-.mdv-img-raised {
-    min-height: 100%; 
-    width: auto;
-    box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
-    margin: 20px 0;
 }
 /*****************************************************/

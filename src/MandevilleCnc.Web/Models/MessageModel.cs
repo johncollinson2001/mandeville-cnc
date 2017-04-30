@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MandevilleCnc.Web.Models
 {
-    public class BasicMessageModel
+    public class MessageModel
     {
         [Required]
         public string Name { get; set; }

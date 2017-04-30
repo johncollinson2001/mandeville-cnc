@@ -1,4 +1,4 @@
-﻿@model BasicMessageModel
+﻿@model MessageModel
 
 @using (Html.BeginForm())
 {
@@ -19,6 +19,9 @@
             @Html.LabelFor(m => m.Message, "Your Message", new { @class = "control-label" })
             @Html.TextAreaFor(m => m.Message, new { @class = "form-control", rows="5" })
         </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="g-recaptcha" data-sitekey="6LfGYx8UAAAAACFWo7tFkAofnpCiaQNEq4vqgVu4"></div>
     </div>
     <div class="col-xs-12">
         <button type="submit" class="btn btn-raised btn-primary btn-block-xs pull-right">Send Message</button>

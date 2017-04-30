@@ -149,3 +149,32 @@ footer .copyright {
     padding: 15px 0 0;
 }
 /*****************************************************/
+
+/* Card **********************************************/
+.mdv-card {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.mdv-card-avatar img {
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+.mdv-card-content h6 {
+    line-height: 1.5em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+/*****************************************************/
+
+/* Raised Image **************************************/
+.mdv-img-raised {
+    min-height: 100%; 
+    width: auto;
+    box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
+    margin: 20px 0;
+}
+/*****************************************************/

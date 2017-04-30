@@ -27,7 +27,7 @@
 
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">
-                    <h3 class="text-center">Our Values</h3>
+                    <h2 class="text-center">Our Values</h2>
                     <p class="text-center">Lorem ipsum dolor sit amet, no quo saepe impedit atomorum. Mei ei atomorum consulatu adversarium, id fugit eligendi molestie pro, mel ea dicam ubique. Cu pro ocurreret dissentias, ne ius assum quidam delicatissimi.</p>
                 </div>
             </div>
@@ -60,33 +60,11 @@
 
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">
-                    <h3 class="text-center">Get in Touch</h3>
+                    <h2 class="text-center">Get in Touch</h2>
                     <p class="text-center">Lorem ipsum dolor sit amet, no quo saepe impedit atomorum. Mei ei atomorum consulatu adversarium, id fugit eligendi molestie pro, mel ea dicam ubique. Cu pro ocurreret dissentias, ne ius assum quidam delicatissimi.</p>
 
                     <div class="row">
-                        <form>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label" for="name">Your Name</label>
-                                    <input class="form-control" id="name" type="text">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label" for="email">Your Email</label>
-                                    <input class="form-control" id="email" type="text">
-                                </div>
-                            </div>
-                            <div class="col-xs-12">
-                                <div class="form-group label-floating">
-                                    <label class="control-label" for="message">Your Message</label>
-                                    <textarea class="form-control" id="message" rows="5"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-xs-12">
-                                <button type="submit" class="btn btn-raised btn-primary btn-block-xs pull-right">Send Message</button>
-                            </div>
-                        </form>
+                        @Html.Partial("_BasicContactForm", new BasicMessageModel())
                     </div>
                 </div>
             </div>

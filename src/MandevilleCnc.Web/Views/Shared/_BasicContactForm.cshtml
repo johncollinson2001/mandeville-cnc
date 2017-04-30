@@ -1,0 +1,26 @@
+﻿@model BasicMessageModel
+
+@using (Html.BeginForm())
+{
+    <div class="col-md-6">
+        <div class="form-group label-floating">
+            @Html.LabelFor(m => m.Name, "Your Name", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group label-floating">
+            @Html.LabelFor(m => m.Email, "Your Email", new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="form-group label-floating">
+            @Html.LabelFor(m => m.Message, "Your Message", new { @class = "control-label" })
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", rows="5" })
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <button type="submit" class="btn btn-raised btn-primary btn-block-xs pull-right">Send Message</button>
+    </div>
+}

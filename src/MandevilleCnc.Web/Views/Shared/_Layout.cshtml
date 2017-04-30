@@ -34,18 +34,18 @@
                 </div>
                 <div class="navbar-collapse collapse navbar-inverse-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
+                        <li class="@(Context.Request.Path == @Url.Action("AboutUs", "Home") ? "active" : "")">
                             <a href="@Url.Action("AboutUs", "Home")">
                                 <i class="material-icons">group</i> About Us
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:void(0)">
+                        <li class="@(Context.Request.Path == @Url.Action("GetAQuote", "Home") ? "active" : "")">
+                            <a href="@Url.Action("GetAQuote", "Home")">
                                 <i class="material-icons">assignment</i> Get a Quote
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:void(0)">
+                        <li class="@(Context.Request.Path == @Url.Action("Contact", "Home") ? "active" : "")">
+                            <a href="@Url.Action("Contact", "Home")">
                                 <i class="material-icons">email</i> Contact
                             </a>
                         </li>

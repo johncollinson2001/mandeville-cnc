@@ -16,8 +16,10 @@
         var scrolledAmount = $(this).scrollTop();
 
         // Compute new values relative to how far the user has scrolled
-        var newBackgroundAlpha = scrolledAmount >= initialWindowHeight ? 1 : (1 / initialWindowHeight) * scrolledAmount;
-        var newPaddingTop = scrolledAmount >= initialWindowHeight ? 0 : Math.round(initialNavbarPaddingTop - ((initialNavbarPaddingTop / initialWindowHeight) * scrolledAmount));
+        var newBackgroundAlpha = scrolledAmount >= initialWindowHeight 
+            ? 1 : Math.pow((1 / initialWindowHeight) * scrolledAmount, 0.3);
+        var newPaddingTop = scrolledAmount >= initialWindowHeight
+            ? 0 : Math.round(initialNavbarPaddingTop - ((initialNavbarPaddingTop / initialWindowHeight) * scrolledAmount));
 
         // Set new css on the navbar
         $navbar

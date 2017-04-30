@@ -10,9 +10,11 @@ nav.navbar {
     padding-top: 25px;
 }
 
-nav.navbar.mdv-navbar-menu-open {
-    background-color: rgba(109, 76, 65, 1) !important;
-    transition: background-color 0.5s;
+@media screen and (max-width:767px) {
+    nav.navbar.mdv-navbar-menu-open {
+        background-color: rgba(109, 76, 65, 1) !important;
+        transition: background-color 0.5s;
+    }
 }
 
 .btn {

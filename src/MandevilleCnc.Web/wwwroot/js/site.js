@@ -17,7 +17,7 @@
 
         // Compute new values relative to how far the user has scrolled
         var newBackgroundAlpha = scrolledAmount >= initialWindowHeight ? 1 : (1 / initialWindowHeight) * scrolledAmount;
-        var newPaddingTop = scrolledAmount >= initialWindowHeight ? 0 : initialNavbarPaddingTop - ((initialNavbarPaddingTop / initialWindowHeight) * scrolledAmount);
+        var newPaddingTop = scrolledAmount >= initialWindowHeight ? 0 : Math.round(initialNavbarPaddingTop - ((initialNavbarPaddingTop / initialWindowHeight) * scrolledAmount));
 
         // Set new css on the navbar
         $navbar
@@ -25,11 +25,11 @@
             .css('paddingTop', newPaddingTop);
     });
 
-    // Force a scroll event on page load
-    window.scrollTo(0, 0);
-
-    // Make navbar background fade to opaque when toggle clicked
+    // Add class to the navbar when the toggle has been clicked, which allows css to transition the bg colour
     $navbarToggle.click(function () {
         $navbar.toggleClass('mdv-navbar-menu-open');
     });
+
+    // Force a scroll event on page load
+    window.scrollTo(0, 0);
 });

@@ -37,6 +37,7 @@ namespace MandevilleCnc.Web
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            // Error handling
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -46,6 +47,17 @@ namespace MandevilleCnc.Web
             {
                 app.UseExceptionHandler("/Error");
             }
+
+            // 404 
+            app.Use(async (context, next) =>
+            {
+                await next();
+                if (context.Response.StatusCode == 404)
+                {
+                    context.Request.Path = "/PageNotFound";
+                    await next();
+                }
+            });
 
             app.UseStaticFiles();
 

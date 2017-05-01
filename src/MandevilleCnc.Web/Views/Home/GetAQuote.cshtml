@@ -1,7 +1,10 @@
 ﻿@model QuoteModel
 
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Get a Quote";
+    ViewData["Description"] = "Use the form on this page to get a no obligation quote for your cnc routing project, no matter how large or small your requirements.";
+    ViewData["Keywords"] = "CNC Routing, CNC ROuting Services, Joinery, Joinery Services, Dorset Routing, UK Routing, CNC Routing Quote, Joinery Quote";
+    ViewData["CanonicalUrl"] = Url.Action("GetAQuote", "Home");
 }
 
 <section class="mdv-page-header">
@@ -9,7 +12,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h1>Get a Quote.</h1>
-                <h4 class="sub-title">We commit to providing you with a no obligation quote, no matter how large or small your requirement.</h4>
+                <h4>We commit to providing you with a no obligation quote for your cnc routing project, no matter how large or small your requirements.</h4>
             </div>
         </div>
     </div>
@@ -62,7 +65,7 @@
                             <div class="g-recaptcha" data-sitekey="6LfGYx8UAAAAACFWo7tFkAofnpCiaQNEq4vqgVu4"></div>
                         </div>
                         <div class="col-xs-12">
-                            <button type="submit" class="btn btn-raised btn-primary btn-block-xs pull-right">Send Request</button>
+                            <button type="submit" class="btn btn-raised btn-primary btn-block-sm pull-right">Send Request</button>
                         </div>
                      }
                 </div>

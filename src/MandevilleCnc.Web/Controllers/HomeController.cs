@@ -20,6 +20,15 @@ namespace MandevilleCnc.Web.Controllers
         }
 
         /// <summary>
+        /// GET: /pagenotfound
+        /// </summary>
+        [HttpGet]
+        public IActionResult PageNotFound()
+        {
+            return View();
+        }
+
+        /// <summary>
         /// GET: /error
         /// </summary>
         [HttpGet]

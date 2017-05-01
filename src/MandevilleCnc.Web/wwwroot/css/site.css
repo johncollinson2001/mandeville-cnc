@@ -8,12 +8,6 @@ h1 {
     text-align: center;
 }
 
-h4.sub-title {
-    text-align: center;
-    font-family: "Roboto";
-    font-weight: 300;
-}
-
 /************************* Bootstrap Overrides *****************************/
 nav.navbar {
     background-color: rgba(109, 76, 65, 0);
@@ -124,12 +118,18 @@ nav.navbar {
     color: #fff;
 }
 
-.mdv-landing-page-header h1 {
-    text-align: left;
+.mdv-page-header:not(.mdv-landing-page-header) h4 {
+    text-align: center;
+    font-family: "Roboto";
+    font-weight: 300;
+}
+
+.mdv-landing-page-header .mdv-landing-page-title {
+    font-size: 2em;
     font-weight: 300;
     font-family: "Roboto";
+    display: block;
 }
-/*****************************************************/
 
 /* Page Content **************************************/
 .mdv-page-content {
@@ -139,41 +139,50 @@ nav.navbar {
 }
 
 .mdv-landing-page-content {
-    margin-top: -90px;
+    margin-top: -125px;
 }
 
 .mdv-page-content .well {
     border-radius: 10px !important;
 }
-/*****************************************************/
 
 /* Info Block ****************************************/
 .mdv-info-block {
     text-align: center;
-    margin: 25px 0;
+    margin: 25px 0 0;
 }
 
 .mdv-info-block i {
     font-size: 3em;
 }
-/*****************************************************/
 
 /* Footer ********************************************/
 footer {
     padding: 15px 0 25px;
 }
 
+@media screen and (max-width:767px) {
+    .mdv-footer-address {
+        text-align: center;
+    }
+}  
+
 footer nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    text-align: center;
+    text-align: right;
 }
+
+@media screen and (max-width:767px) {
+    footer nav ul {
+        text-align: center;
+    }
+}  
 
 footer nav li {
     text-transform: uppercase;
-    display: inline-block;
-    padding: 0 15px;
+    padding: 5px 0;
 }
 
 footer nav li a {
@@ -186,10 +195,10 @@ footer nav li a:hover {
     text-decoration: none;
 }
 
-footer .copyright {
+footer .mdv-copyright {
     padding: 15px 0 0;
+    margin: 0;
 }
-/*****************************************************/
 
 /* Card **********************************************/
 .mdv-card {
@@ -209,4 +218,3 @@ footer .copyright {
     text-transform: uppercase;
     font-weight: 500;
 }
-/*****************************************************/

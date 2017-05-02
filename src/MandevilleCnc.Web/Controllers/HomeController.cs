@@ -70,7 +70,7 @@ namespace MandevilleCnc.Web.Controllers
         [HttpPost]
         public IActionResult GetAQuote(QuoteModel model, [Bind(Prefix = "g-recaptcha-response")] string recaptchaResponse)
         {
-            return ValidateAndSendMessage(model.Name, model.Email, model.Message, recaptchaResponse);
+            return ValidateAndSendMessage(model.Name, model.Email, model.EmailMessage, recaptchaResponse);
         }
 
         /// <summary>

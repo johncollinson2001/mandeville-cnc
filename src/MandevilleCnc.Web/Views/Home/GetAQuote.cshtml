@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Get a Quote";
     ViewData["Description"] = "Use the form on this page to get a no obligation quote for your cnc routing project, no matter how large or small your requirements.";
-    ViewData["Keywords"] = "CNC Routing, CNC ROuting Services, Joinery, Joinery Services, Dorset Routing, UK Routing, CNC Routing Quote, Joinery Quote";
+    ViewData["Keywords"] = "CNC Routing, CNC Routing Services, Joinery, Joinery Services, Dorset Routing, UK Routing, CNC Routing Quote, Joinery Quote";
     ViewData["CanonicalUrl"] = Url.Action("GetAQuote", "Home");
 }
 
@@ -32,37 +32,42 @@
                      @using (Html.BeginForm())
                      {
                         <div class="col-md-6">
-                            <div class="form-group label-floating">
+                            <div class="form-group">
                                 @Html.LabelFor(m => m.Name, "Your Name", new { @class = "control-label" })
                                 @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                                <span asp-validation-for="Name" class="text-danger mdv-form-error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group label-floating">
+                            <div class="form-group">
                                 @Html.LabelFor(m => m.Email, "Your Email", new { @class = "control-label" })
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                <span asp-validation-for="Email" class="text-danger mdv-form-error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group label-floating">
+                            <div class="form-group">
                                 @Html.LabelFor(m => m.Telephone, "Your Telephone Number", new { @class = "control-label" })
                                 @Html.TextBoxFor(m => m.Telephone, new { @class = "form-control" })
+                                <span asp-validation-for="Telephone" class="text-danger mdv-form-error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group label-floating">
+                            <div class="form-group">
                                 @Html.LabelFor(m => m.BestContactTime, "The Best Time to Contact You", new { @class = "control-label" })
                                 @Html.TextBoxFor(m => m.BestContactTime, new { @class = "form-control" })
+                                <span asp-validation-for="BestContactTime" class="text-danger mdv-form-error"></span>
                             </div>
                         </div>
                         <div class="col-xs-12">
-                            <div class="form-group label-floating">
+                            <div class="form-group">
                                 @Html.LabelFor(m => m.ProjectDetails, "Your Project Details", new { @class = "control-label" })
                                 @Html.TextAreaFor(m => m.ProjectDetails, new { @class = "form-control", rows = "10" })
+                                <span asp-validation-for="ProjectDetails" class="text-danger mdv-form-error"></span>
                             </div>
                         </div>
                         <div class="col-xs-12">
-                            <div class="g-recaptcha" data-sitekey="6LfGYx8UAAAAACFWo7tFkAofnpCiaQNEq4vqgVu4"></div>
+                            <div class="g-recaptcha mdv-recaptcha" data-sitekey="6LfGYx8UAAAAACFWo7tFkAofnpCiaQNEq4vqgVu4"></div>
                         </div>
                         <div class="col-xs-12">
                             <button type="submit" class="btn btn-raised btn-primary btn-block-sm pull-right">Send Request</button>

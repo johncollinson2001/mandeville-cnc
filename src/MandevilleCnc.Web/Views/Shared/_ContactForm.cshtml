@@ -3,25 +3,28 @@
 @using (Html.BeginForm("SendMessage", "Home"))
 {
     <div class="col-md-6">
-        <div class="form-group label-floating">
+        <div class="form-group">
             @Html.LabelFor(m => m.Name, "Your Name", new { @class = "control-label" })
             @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            <span asp-validation-for="Name" class="text-danger mdv-form-error"></span>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="form-group label-floating">
+        <div class="form-group">
             @Html.LabelFor(m => m.Email, "Your Email", new { @class = "control-label" })
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            <span asp-validation-for="Email" class="text-danger mdv-form-error"></span>
         </div>
     </div>
     <div class="col-xs-12">
-        <div class="form-group label-floating">
+        <div class="form-group">
             @Html.LabelFor(m => m.Message, "Your Message", new { @class = "control-label" })
             @Html.TextAreaFor(m => m.Message, new { @class = "form-control", rows="5" })
+            <span asp-validation-for="Message" class="text-danger mdv-form-error"></span>
         </div>
     </div>
     <div class="col-xs-12">
-        <div class="g-recaptcha" data-sitekey="6LfGYx8UAAAAACFWo7tFkAofnpCiaQNEq4vqgVu4"></div>
+        <div class="g-recaptcha mdv-recaptcha" data-sitekey="6LfGYx8UAAAAACFWo7tFkAofnpCiaQNEq4vqgVu4"></div>
     </div>
     <div class="col-xs-12">
         <button type="submit" class="btn btn-raised btn-primary btn-block-sm pull-right">Send Message</button>

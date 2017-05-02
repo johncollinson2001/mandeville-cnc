@@ -37,9 +37,38 @@
         $navbar.toggleClass('mdv-navbar-menu-open');
     });
 
-    // Add async submission to forms
+    // Configure forms
     $forms.each(function () {
+        // Configure form validator
+        var $form = $(this);
+        var formData = $.data($form[0]);
+        var settings = formData.validator.settings;
+        var defaultErrorPlacement = settings.errorPlacement;
+        var defaultSuccess = settings.success;
+
+        // Add the has-error class to the parent form group
+        settings.errorPlacement = function (label, element) {
+            // Call old handler so it can update the HTML
+            defaultErrorPlacement(label, element);
+
+            // Add has-error to form group
+            label.parents('.form-group').addClass('has-error');
+        };
+
+        // Remove the has error class when the form is submitted
+        settings.success = function (label) {
+            // Remove has-error from the form group
+            label.parents('.form-group').removeClass('has-error');
+
+            // Call old handler to do rest of the work
+            defaultSuccess(label);
+        };
+
+        // Add submit handler
         $(this).submit(function (e) {
+            if (!$(this).valid())
+                return;
+
             var submitButton = $(this).find('button[type=submit]');
 
             // Store the value of the submit button in order to reset state later
@@ -92,11 +121,6 @@
             return false;
         });
     });
-
-
-    // FORM VALIDATION????
-
-
 
     // Force a scroll event on page load
     window.scrollTo(0, 0);

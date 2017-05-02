@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Contact";
     ViewData["Description"] = "This page provides you with all the different ways you can get in touch with us. We'd love to hear from you.";
-    ViewData["Keywords"] = "CNC Routing, CNC ROuting Services, Joinery, Joinery Services, Dorset Routing, UK Routing, CNC Routing Contact, Joinery Contact, Mandeville Contact";
+    ViewData["Keywords"] = "CNC Routing, CNC Routing Services, Joinery, Joinery Services, Dorset Routing, UK Routing, CNC Routing Contact, Joinery Contact, Mandeville Contact";
     ViewData["CanonicalUrl"] = Url.Action("Contact", "Home");
 }
 
@@ -20,26 +20,23 @@
     <div class="container-fluid">
         <div class="well">
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h2>Address</h2>
-                            <p>
-                                Unit 4 Townsend Buildings,<br />
-                                Melbury Osmond,<br />
-                                Dorset,<br />
-                                UK,<br />
-                                DT2 0LP
-                            </p>
-                            <p>
-                                <strong>
-                                    tel: 01935 83861<br />
-                                    mob: 07974 793588<br />
-                                    email: <a href="mailto:info@mandevillejoinery.com">info@mandevillejoinery.com</a>
-                                </strong>
-                            </p>
-                            <div class="clearfix"></div>
-                        </div>
+                <div class="col-xs-12 col-md-8 col-md-offset-2">
+                    <div class="row text-center">
+                        <h2>Address</h2>
+                        <p>
+                            Unit 4 Townsend Buildings,<br />
+                            Melbury Osmond,<br />
+                            Dorset,<br />
+                            UK,<br />
+                            DT2 0LP
+                        </p>
+                        <p>
+                            <strong>
+                                tel: 01935 83861<br />
+                                mob: 07974 793588<br />
+                                email: <a href="mailto:info@mandevillejoinery.com">info@mandevillejoinery.com</a>
+                            </strong>
+                        </p>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
@@ -48,8 +45,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <h2>Send Us a Message</h2>
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <h2 class="text-center">Send Us a Message</h2>
                     <div class="row">
                         @Html.Partial("_ContactForm", new MessageModel())
                     </div>

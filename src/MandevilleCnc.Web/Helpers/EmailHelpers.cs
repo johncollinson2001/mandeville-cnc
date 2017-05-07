@@ -13,6 +13,13 @@ namespace MandevilleCnc.Web.Helpers
 {
     public static class EmailHelpers
     {
+        /// <summary>
+        /// States if the given captcha reponse is valid.
+        /// </summary>
+        /// <param name="secret">The recaptcha secret, which you need to get from Google.</param>
+        /// <param name="captchaResponse">The captcha response, posted from the form, which needs to be verified.</param>
+        /// <param name="host">The ip of the user who is posting the form.</param>
+        /// <returns>True if the captcha is valid, false if not.</returns>
         public static async Task<bool> IsRecaptchaValid(string secret, string captchaResponse, string host)
         {
             var requestUrl = string.Format(
@@ -35,6 +42,16 @@ namespace MandevilleCnc.Web.Helpers
             return false;
         }
 
+        /// <summary>
+        /// Sends an email using mailkit.
+        /// </summary>
+        /// <param name="to">The address the mail is being sent to.</param>
+        /// <param name="from">The address the mail is being sent from.</param>
+        /// <param name="name">The name of the sender.</param>
+        /// <param name="subject">The subject of the email.</param>
+        /// <param name="message">The email message.</param>
+        /// <param name="smtp">The smtp server.</param>
+        /// <returns>The asynchronous task.</returns>
         public static async Task SendMail(string to, string from,string name,  string subject, string message, string smtp)
         {
             var emailMessage = new MimeMessage();
@@ -52,6 +69,10 @@ namespace MandevilleCnc.Web.Helpers
             }
         }
 
+        /// <summary>
+        /// Gets a random motivational quote, used to add to the bottom of emails if you choose!
+        /// </summary>
+        /// <returns>A motivational quote that really motivates.</returns>
         public static string GetMotivationalQuote()
         {
             var quotes = new string[] 

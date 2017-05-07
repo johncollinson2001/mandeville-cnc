@@ -1,12 +1,11 @@
-﻿A super simple framework for a rich, plugin based web mapping application.
+﻿A simple, promotional website for a fictitious CNC routing company.
 
-The app uses the following tech:
+The site uses a really neat responsive CSS library, that is styled on Google's material design principles and built ontop of Bootstrap.
 
-* ASP.net MVC
-* leaflet.js
-* ArcGIS Leaflet extensions
-* Bootstrap 3
+The site uses asp.net core as the server back end, and has some simple email support which must be configured before it'll work. 
+
+The forms are secured with a recaptcha, which you'll also need to configure before it'll work on your own site.
 
 View an online demo here:
 
-http://esri-leaflet.azurewebsites.net/
+http://mandeville-cnc.azurewebsites.net/

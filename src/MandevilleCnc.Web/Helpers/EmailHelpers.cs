@@ -48,7 +48,7 @@ namespace MandevilleCnc.Web.Helpers
         /// <param name="subject">The subject of the email.</param>
         /// <param name="message">The email message.</param>
         /// <returns>The asynchronous task.</returns>
-        public static async Task SendMail(string to, string from, string name,  string subject, string message)
+        public static async Task SendMail(string to, string from, string name,  string subject, string message, string apiKeyEnvironmentVariable)
         {
             var emailMessage = new SendGridMessage();
             emailMessage.SetFrom(new EmailAddress(from, name));
@@ -56,7 +56,7 @@ namespace MandevilleCnc.Web.Helpers
             emailMessage.SetSubject(subject);
             emailMessage.AddContent(MimeType.Text, message);
 
-            var apiKey = Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
+            var apiKey = Environment.GetEnvironmentVariable(apiKeyEnvironmentVariable);
             var client = new SendGridClient(apiKey);
             await client.SendEmailAsync(emailMessage);
         }

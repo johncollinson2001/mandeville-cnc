@@ -24,8 +24,14 @@ namespace MandevilleCnc.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Adds services required for using options.
+            services.AddOptions();
+
             // Configure lower case routes
             services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
+
+            // Register the IConfiguration instance which Options binds against.
+            services.Configure<MyOptions>(Configuration);
 
             // Add framework services.
             services.AddMvc();

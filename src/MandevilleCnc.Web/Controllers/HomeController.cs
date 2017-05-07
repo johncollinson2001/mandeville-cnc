@@ -1,15 +1,23 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MandevilleCnc.Web.Models;
 using MandevilleCnc.Web.Helpers;
-using System;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 
 namespace MandevilleCnc.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly MyOptions _options;
+
+        /// <summary>
+        /// Construct.
+        /// </summary>
+        /// <param name="optionsAccessor">Provides access to the application options.</param>
+        public HomeController(IOptions<MyOptions> optionsAccessor)
+        {
+            _options = optionsAccessor.Value;
+        }
+
         /// <summary>
         /// GET: / 
         /// </summary>
@@ -94,14 +102,14 @@ namespace MandevilleCnc.Web.Controllers
             }
 
             // Validate recaptcha
-            if (!EmailHelpers.IsRecaptchaValid("6LfGYx8UAAAAAI-3Y8bzfGSBroFVfaCcSIdW77g1", recaptchaResponse, Request.Host.Host).Result)
+            if (!EmailHelpers.IsRecaptchaValid(_options.RecaptchaSecret, recaptchaResponse, Request.Host.Host).Result)
             {
                 return new BadRequestResult();
             }
 
             // Send quote request
             var subject = "Message from " + name + ", sent via Mandeville CNC";
-            EmailHelpers.SendMail("johncollinson2001@gmail.com", email, name, subject, message).Wait();
+            EmailHelpers.SendMail(_options.EmailRecipient, email, name, subject, message, _options.SendGridApiKeyEnvironmentVariableName).Wait();
 
             return new OkResult();
         }

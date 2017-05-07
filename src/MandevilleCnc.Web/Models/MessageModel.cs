@@ -33,17 +33,24 @@ namespace MandevilleCnc.Web.Models
                 message += Environment.NewLine;
                 message += "The clients details are:";
                 message += Environment.NewLine;
+                message += Environment.NewLine;
                 message += string.Format("Email: {0}", Email);
+                message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += "Message:";
                 message += Environment.NewLine;
+                message += Environment.NewLine;
                 message += Message;
+                message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += "=====================================================================================";
                 message += Environment.NewLine;
+                message += Environment.NewLine;
                 message += EmailHelpers.GetMotivationalQuote();
+                message += Environment.NewLine;
+                message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += "Have a great day!";
 

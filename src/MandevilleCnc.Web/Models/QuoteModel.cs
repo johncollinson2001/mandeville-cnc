@@ -39,26 +39,35 @@ namespace MandevilleCnc.Web.Models
                 message += Environment.NewLine;
                 message += "The clients details are:";
                 message += Environment.NewLine;
+                message += Environment.NewLine;
                 message += string.Format("Email: {0}", Email);
+                message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += string.Format("Telephome: {0}", Telephone);
 
                 if (BestContactTime != null)
                 {
+                message += Environment.NewLine;
                     message += Environment.NewLine;
                     message += string.Format("Best contact time: {0}", BestContactTime);
                 }
 
                 message += Environment.NewLine;
                 message += Environment.NewLine;
+                message += Environment.NewLine;
                 message += "Project Details:";
+                message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += ProjectDetails;
                 message += Environment.NewLine;
                 message += Environment.NewLine;
+                message += Environment.NewLine;
                 message += "=====================================================================================";
                 message += Environment.NewLine;
+                message += Environment.NewLine;
                 message += EmailHelpers.GetMotivationalQuote();
+                message += Environment.NewLine;
+                message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += "Have a great day!";
 

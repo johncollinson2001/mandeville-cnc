@@ -79,7 +79,7 @@ namespace MandevilleCnc.Web.Controllers
         [HttpPost]
         public IActionResult SendMessage(MessageModel model, [Bind(Prefix = "g-recaptcha-response")] string recaptchaResponse)
         {
-            return ValidateAndSendMessage(model.Name, model.Email, model.Message, recaptchaResponse);
+            return ValidateAndSendMessage(model.Name, model.Email, model.EmailMessage, recaptchaResponse);
         }
 
         /// <summary>
@@ -100,8 +100,8 @@ namespace MandevilleCnc.Web.Controllers
             }
 
             // Send quote request
-            EmailHelpers.SendMail("info@mandevillejoinery.com", email, name,
-                "Message sent through mandevillecnc.com", message, "smtp.mandevillejoinery.com").Wait();
+            var subject = "Message from " + name + ", sent via Mandeville CNC";
+            EmailHelpers.SendMail("johncollinson2001@gmail.com", email, name, subject, message).Wait();
 
             return new OkResult();
         }

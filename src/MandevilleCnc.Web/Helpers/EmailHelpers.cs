@@ -1,13 +1,10 @@
-﻿using MailKit.Net.Smtp;
-using MailKit.Security;
-using MandevilleCnc.Web.Models;
-using MimeKit;
+﻿using MandevilleCnc.Web.Models;
 using Newtonsoft.Json;
+using SendGrid.Helpers.Mail;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using SendGrid;
 
 namespace MandevilleCnc.Web.Helpers
 {
@@ -43,30 +40,25 @@ namespace MandevilleCnc.Web.Helpers
         }
 
         /// <summary>
-        /// Sends an email using mailkit.
+        /// Sends an email using send grid.
         /// </summary>
         /// <param name="to">The address the mail is being sent to.</param>
         /// <param name="from">The address the mail is being sent from.</param>
         /// <param name="name">The name of the sender.</param>
         /// <param name="subject">The subject of the email.</param>
         /// <param name="message">The email message.</param>
-        /// <param name="smtp">The smtp server.</param>
         /// <returns>The asynchronous task.</returns>
-        public static async Task SendMail(string to, string from,string name,  string subject, string message, string smtp)
+        public static async Task SendMail(string to, string from, string name,  string subject, string message)
         {
-            var emailMessage = new MimeMessage();
+            var emailMessage = new SendGridMessage();
+            emailMessage.SetFrom(new EmailAddress(from, name));
+            emailMessage.AddTo(new EmailAddress(to));
+            emailMessage.SetSubject(subject);
+            emailMessage.AddContent(MimeType.Text, message);
 
-            emailMessage.From.Add(new MailboxAddress(name, from));
-            emailMessage.To.Add(new MailboxAddress(string.Empty, to));
-            emailMessage.Subject = subject;
-            emailMessage.Body = new TextPart("plain") { Text = message };
-
-            using (var client = new SmtpClient())
-            {
-                await client.ConnectAsync(smtp, 25, SecureSocketOptions.None).ConfigureAwait(false);
-                await client.SendAsync(emailMessage).ConfigureAwait(false);
-                await client.DisconnectAsync(true).ConfigureAwait(false);
-            }
+            var apiKey = Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
+            var client = new SendGridClient(apiKey);
+            await client.SendEmailAsync(emailMessage);
         }
 
         /// <summary>

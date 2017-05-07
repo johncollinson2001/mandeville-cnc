@@ -8,4 +8,4 @@ The forms are secured with a recaptcha, which you'll also need to configure befo
 
 View an online demo here:
 
-http://mandeville-cnc.azurewebsites.net/
+http://mandeville.azurewebsites.net/

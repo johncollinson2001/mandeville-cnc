@@ -70,7 +70,7 @@ namespace MandevilleCnc.Web.Helpers
             var quotes = new string[] 
             {
                 "Tough times never last, but tough people do.",
-                "When you want to succeed as bad as you want to breathe,21 then you’ll be successful.",
+                "When you want to succeed as bad as you want to breathe, then you’ll be successful.",
                 "Hard work beats talent when talent doesn’t work hard.",
                 "A man can be as great as he wants to be. If you believe in yourself and have the courage, the determination, the dedication, the competitive drive and if you are willing to sacrifice the little things in life and pay the price for the things that are worthwhile, it can be done.",
                 "Every great story on the planet happened when someone decided not to give up, but kept going no matter what.",

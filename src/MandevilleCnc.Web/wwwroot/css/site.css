@@ -21,6 +21,11 @@ nav.navbar {
     }
 }
 
+.row {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .btn {
     color: rgba(255, 255, 255, 1) !important;
 }

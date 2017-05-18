@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Welcome to the home of Mandeville Joinery.";
+    ViewData["Description"] = "We are Mandeville Joinery. We produce fine quality, bespoke English woodwork for any project, large or small, from design to delivery or anywhere inbetween. Whatever your concept, Mandeville can meet your needs.";
+    ViewData["Keywords"] = "CNC Routing, CNC Routing Services, Joinery, Joinery Services, Woodwork, Dorset Routing, UK Routing, Quality, Sustainability, Service";
+    ViewData["CanonicalUrl"] = Url.Action("Index", "Home");
+}
+
+<section class="mdv-page-header mdv-landing-page-header" style="background-image: url('/images/bg3.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <span class="mdv-landing-page-title">Quality. Sustainability. Service.</span>
+                <h4>
+                    Here at Mandeville Joinery, you can expect the best. Our team have years of hard earned experience in 
+                    producing fine quality woodwork, which ensures you receive a great service at a competitive price.
+                </h4>
+                <br>
+                <a href="@Url.Action("GetAQuote", "Home")" class="btn btn-raised btn-lg btn-success">Get a Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mdv-page-content mdv-landing-page-content">
+    <div class="container-fluid">
+        <div class="well">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h1 class="text-center">Welcome to Mandeville Joinery</h1>
+                    <p class="lead text-center mdv-paragraph-header">
+                        We are Mandeville Joinery. We produce fine quality, bespoke English woodwork for any project, large or small, 
+                        from design to delivery or anywhere inbetween. Whatever your concept, Mandeville can meet your needs.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h2 class="text-center">Our Values</h2>
+                    <p class="text-center">
+                        We pride ourselves on our sustainable values, using local materials where possible. We balance traditional 
+                        techniques with modern design and are highly regarded by our past customers. We offer a professional service 
+                        with a personal touch and can assist with all stages of the project lifecycle; from idea, to design, to 
+                        manufacture and installation.
+                    </p>
+                </div>
+                
+                <div class="col-sm-4">
+                    <div class="mdv-info-block">
+                        <i class="material-icons icon-success">beenhere</i>
+                        <h4>Quality</h4>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="mdv-info-block">
+                        <i class="material-icons icon-warning">public</i>
+                        <h4>Sustainability</h4>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="mdv-info-block">
+                        <i class="material-icons icon-info">sentiment_very_satisfied</i>
+                        <h4>Service</h4>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="mdv-info-block">
+                        <a href="@Url.Action("AboutUs", "Home")" class="btn btn-raised btn-lg btn-success">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h2 class="text-center">Get in Touch</h2>
+                    <p class="text-center">
+                        Contact us today for a free no obligation quote. We will offer a genuine opinion on the needs of your project 
+                        and will offer help and advice whether we undertake work for you or not.
+                    </p>
+
+                    <div class="row">
+                        @Html.Partial("_ContactForm", new MessageModel())
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

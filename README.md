@@ -1,4 +1,4 @@
-﻿A simple, promotional website for a fictitious CNC routing company.
+﻿A simple, promotional website for a joinery company.
 
 The site uses a really neat responsive CSS library, that is styled on Google's material design principles and built ontop of Bootstrap. The site uses asp.net core as the server back end.
 

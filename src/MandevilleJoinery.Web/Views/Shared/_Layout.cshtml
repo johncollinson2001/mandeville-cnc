@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="@ViewData["Description"]" />
+    <meta name="keywords" content="@ViewData["Keywords"]" />
+
+    <title>Mandeville Joinery - @ViewData["Title"]</title>
+    <link rel="canonical" href="@ViewData["CanonicalUrl"]">
+
+    @* Fonts *@
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" type="text/css">
+
+    @* CSS *@
+    <environment names="Development">
+        <link href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap.css")" rel="stylesheet">
+        <link href="@Url.Content("~/lib/bootstrap-material-design/dist/css/bootstrap-material-design.css")" rel="stylesheet">
+        <link href="@Url.Content("~/lib/bootstrap-material-design/dist/css/ripples.min.css")" rel="stylesheet">
+        <link href="@Url.Content("~/css/site.css")" rel="stylesheet">
+    </environment>    
+
+    <environment names="Staging,Production">
+        <link href="@Url.Content("~/css/site.min.css")" rel="stylesheet">
+    </environment>
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    @* Header and nav *@
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">Mandeville Joinery</a>
+                </div>
+                <div class="navbar-collapse collapse navbar-inverse-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="@(Context.Request.Path == @Url.Action("AboutUs", "Home") ? "active" : "")">
+                            <a href="@Url.Action("AboutUs", "Home")">
+                                <i class="material-icons">group</i> About Us
+                            </a>
+                        </li>
+                       @* <li class="@(Context.Request.Path == @Url.Action("Gallery", "Home") ? "active" : "")">
+                            <a href="@Url.Action("Gallery", "Home")">
+                                <i class="material-icons">camera_alt</i> Gallery
+                            </a>
+                        </li> *@
+                        <li class="@(Context.Request.Path == @Url.Action("GetAQuote", "Home") ? "active" : "")">
+                            <a href="@Url.Action("GetAQuote", "Home")">
+                                <i class="material-icons">assignment</i> Get a Quote
+                            </a>
+                        </li>
+                        <li class="@(Context.Request.Path == @Url.Action("Contact", "Home") ? "active" : "")">
+                            <a href="@Url.Action("Contact", "Home")">
+                                <i class="material-icons">email</i> Contact
+                            </a>
+                        </li>
+                        <li class="visible-xs">
+                            <a href="tel:+44193583861">
+                                <i class="material-icons">phone</i> Call Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    @* Page content *@
+    @RenderBody()
+
+    @* Footer *@
+    @if (!ViewData.ContainsKey("HideFooter") || (ViewData.ContainsKey("HideFooter") && !bool.Parse(ViewData["HideFooter"].ToString())))
+    {
+        <footer itemscope="" itemtype="http://schema.org/LocalBusiness">
+            <div class="container">
+                <div class="col-sm-6 mdv-footer-address" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <p>
+                        <span itemprop="streetAddress">Unit 4 Townsend Buildings</span>,<br />
+                        <span itemprop="addressLocality">Melbury Osmond</span>,<br />
+                        <span itemprop="addressRegion">Dorset</span>,<br />
+                        <span itemprop="addressCountry">UK</span>,<br />
+                        <span itemprop="postalCode">DT2 0LP</span>
+                    </p>
+                    <p>
+                        <strong>
+                            tel: <span itemprop="telephone">+44 (0)1935 83861</span><br />
+                            mob: <span itemprop="telephone">+44 (0)7974 793588</span><br />
+                            email: <a href="mailto:info@mandevillejoinery.com" itemprop="email">info@mandevillejoinery.com</a>
+                        </strong>
+                    </p>
+                    <p>
+                        Open <time itemprop="openingHours" datetime="Mo,Tu,We,Th,Fr 08:30-17:30">08:30 a.m. to 17:30 p.m. Monday to Friday</time>
+                    </p>
+
+                    <span itemprop="geo" itemscope="" itemtype="http://schema.org/GeoCoordinates">
+                        <meta itemprop="latitude" content="50.865189">
+                        <meta itemprop="longitude" content="-2.600136">
+                    </span>
+                </div>
+
+                <div class="col-sm-6">
+                    <nav>
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                            <li><a href="@Url.Action("AboutUs", "Home")">About Us</a></li>
+                            @*<li><a href="@Url.Action("Gallery", "Home")">Gallery</a></li>*@
+                            <li><a href="@Url.Action("GetAQuote", "Home")">Get a Quote</a></li>
+                            <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-xs-12">
+                    <p class="text-center mdv-copyright">©
+                    <script>document.write(new Date().getFullYear())</script>, <span itemprop="name">Mandeville Joinery Co. Ltd.</span></p>
+                </div>
+            </div>
+        </footer>
+    }
+
+    @* Modal *@
+    <div class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Modal Body</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-raised btn-primary btn-block-xs" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Scripts *@
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <environment names="Development">
+        <script src="@Url.Content("~/lib/jquery/dist/jquery.js")"></script>
+        <script src="@Url.Content("~/lib/jquery-validate/dist/jquery.validate.js")"></script>
+        <script src="@Url.Content("~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js")"></script>
+        <script src="@Url.Content("~/lib/bootstrap/dist/js/bootstrap.js")"></script>
+        <script src="@Url.Content("~/lib/bootstrap-material-design/dist/js/material.js")"></script>
+        <script src="@Url.Content("~/lib/bootstrap-material-design/dist/js/ripples.js")"></script>
+        <script src="@Url.Content("~/js/site.js")"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="@Url.Content("~/js/site.min.js")"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+
+    @* Initialise the bootstrap material design framework *@
+    <script>
+        $(function () {
+            $.material.init();
+        });
+    </script>
+</body>
+</html>

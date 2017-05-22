@@ -10,7 +10,7 @@ h1 {
 
 /************************* Bootstrap Overrides *****************************/
 nav.navbar {
-    background-color: rgba(99, 0, 0, 0);
+    background-color: rgba(99, 0, 0, 0.01);
     padding-top: 25px;
 }
 
@@ -123,19 +123,27 @@ nav.navbar {
     background-position: center center;
     background-size: cover;
     background-image: url('/images/bg3.jpg');
-    min-height: 100vh;
+    min-height: 400px;
+    height: 100vh;
+    width: 100%;
+    display: table;
 }
 
 .mdv-page-header::before {
     background-color: rgba(0, 0, 0, 0.2);
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    min-height: 400px;
     content: "";
 }
 
+.mdv-page-header .mdv-page-header-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .mdv-page-header .container {
-    padding-top: 150px;
     color: #fff;
 }
 
@@ -154,13 +162,9 @@ nav.navbar {
 
 /* Page Content **************************************/
 .mdv-page-content {
-    margin-top: -250px;
+    margin-top: -60px;
     z-index: 999;
     position: relative;
-}
-
-.mdv-landing-page-content {
-    margin-top: -125px;
 }
 
 .mdv-page-content .well {

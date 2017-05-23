@@ -46,11 +46,11 @@
                                 <i class="material-icons">group</i> About Us
                             </a>
                         </li>
-                       @* <li class="@(Context.Request.Path == @Url.Action("Gallery", "Home") ? "active" : "")">
+                        <li class="@(Context.Request.Path == @Url.Action("Gallery", "Home") ? "active" : "")">
                             <a href="@Url.Action("Gallery", "Home")">
                                 <i class="material-icons">camera_alt</i> Gallery
                             </a>
-                        </li> *@
+                        </li>
                         <li class="@(Context.Request.Path == @Url.Action("GetAQuote", "Home") ? "active" : "")">
                             <a href="@Url.Action("GetAQuote", "Home")">
                                 <i class="material-icons">assignment</i> Get a Quote
@@ -110,11 +110,14 @@
                         <ul>
                             <li><a href="@Url.Action("Index", "Home")">Home</a></li>
                             <li><a href="@Url.Action("AboutUs", "Home")">About Us</a></li>
-                            @*<li><a href="@Url.Action("Gallery", "Home")">Gallery</a></li>*@
+                            <li><a href="@Url.Action("Gallery", "Home")">Gallery</a></li>
                             <li><a href="@Url.Action("GetAQuote", "Home")">Get a Quote</a></li>
                             <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
                         </ul>
                     </nav>
+                    <a href="http://www.fsb.org.uk" target="_blank" class="mdv-footer-fsb-link">
+                        <img src="@Url.Content("~/images/fsblogo.png")" />
+                    </a>
                 </div>
 
                 <div class="col-xs-12">

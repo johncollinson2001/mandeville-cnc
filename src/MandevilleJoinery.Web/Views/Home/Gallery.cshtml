@@ -1,19 +1,29 @@
 ﻿@model QuoteModel
+@using Microsoft.AspNetCore.Hosting;
+@using System.IO;
 
 @{
-    ViewData["Title"] = "Get a Quote";
-    ViewData["Description"] = "Use the form on this page to get a no obligation quote for your cnc routing project, no matter how large or small your requirements.";
+    ViewData["Title"] = "Gallery";
+    ViewData["Description"] = "Have a look at some of our work in the interactive gallery.";
     ViewData["Keywords"] = "CNC Routing, CNC Routing Services, Joinery, Joinery Services, Woodwork, Dorset Routing, UK Routing, CNC Routing Quote, Joinery Quote";
-    ViewData["CanonicalUrl"] = Url.Action("GetAQuote", "Home");
+    ViewData["CanonicalUrl"] = Url.Action("Gallery", "Home");
 }
 
-<section class="mdv-page-header" style="background-image: url('/images/bg1.jpg')">
+@section Styles {
+    <link href="@Url.Content("~/lib/fotorama/fotorama.css")" rel="stylesheet">
+}
+
+@section Scripts {
+    <script src="@Url.Content("~/lib/fotorama/fotorama.js")"></script>
+}
+
+<section class="mdv-page-header" style="background-image: url('/images/bg6.jpg')">
     <div class="mdv-page-header-inner">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <h1>Get a Quote.</h1>
-                    <h4>We commit to providing you with a no obligation quote for your cnc routing project, no matter how large or small your requirements.</h4>
+                    <h1>Gallery.</h1>
+                    <h4>We like to take pictures of our work. Take a look in the interactive gallery below.</h4>
                 </div>
             </div>
         </div>
@@ -21,61 +31,21 @@
 </section>
 
 <section class="mdv-page-content">
-    <div class="container-fluid">
-        <div class="well">
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <p class="lead text-center mdv-paragraph-header">Please complete the form below and one of our friendly team will be in touch shortly.</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                     @using (Html.BeginForm())
-                     {
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.Name, "Your Name", new { @class = "control-label" })
-                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-                                <span asp-validation-for="Name" class="text-danger mdv-form-error"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.Email, "Your Email", new { @class = "control-label" })
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                                <span asp-validation-for="Email" class="text-danger mdv-form-error"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.Telephone, "Your Telephone Number", new { @class = "control-label" })
-                                @Html.TextBoxFor(m => m.Telephone, new { @class = "form-control" })
-                                <span asp-validation-for="Telephone" class="text-danger mdv-form-error"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.BestContactTime, "The Best Time to Contact You", new { @class = "control-label" })
-                                @Html.TextBoxFor(m => m.BestContactTime, new { @class = "form-control" })
-                                <span asp-validation-for="BestContactTime" class="text-danger mdv-form-error"></span>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.ProjectDetails, "Your Project Details", new { @class = "control-label" })
-                                @Html.TextAreaFor(m => m.ProjectDetails, new { @class = "form-control", rows = "10" })
-                                <span asp-validation-for="ProjectDetails" class="text-danger mdv-form-error"></span>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="g-recaptcha mdv-recaptcha" data-sitekey="@Options.Value.RecaptchaSiteKey"></div>
-                        </div>
-                        <div class="col-xs-12">
-                            <button type="submit" class="btn btn-raised btn-primary btn-block-sm pull-right">Send Request</button>
-                        </div>
-                     }
-                </div>
+    <div style="background-color:#fff;width:100%;padding: 20px;">
+        <div class="row">
+            <div class="fotorama" data-nav="thumbs" data-width="100%">
+                @{
+                    var hostRoot = ((IHostingEnvironment)ViewContext.HttpContext.RequestServices.GetService(typeof(IHostingEnvironment))).ContentRootPath;
+                    var wwwRoot = System.IO.Path.Combine(hostRoot, "wwwroot");
+                    var gallery = System.IO.Path.Combine(wwwRoot, "images", "gallery");
+                }
+                    
+                @foreach (var file in Directory.GetFiles(gallery, "*_thumb.*"))
+                {
+                    @Html.Raw("<a href=\"" + file.Replace(wwwRoot, string.Empty).Replace('\\', '/').Replace(" ", "%20").Replace("_thumb", string.Empty) + "\">");
+                    @Html.Raw("<img src=" + file.Replace(wwwRoot, string.Empty).Replace('\\', '/').Replace(" ", "%20") + " />");
+                    @Html.Raw("</a>");
+                }                    
             </div>
         </div>
     </div>

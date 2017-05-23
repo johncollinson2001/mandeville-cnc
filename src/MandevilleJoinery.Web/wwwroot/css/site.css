@@ -238,6 +238,19 @@ footer .mdv-copyright {
     margin: 0;
 }
 
+.mdv-footer-fsb-link {
+    float: right;
+    margin-top:6px;
+}
+
+@media screen and (max-width:767px) {
+    .mdv-footer-fsb-link {
+        float: none !important;
+        display: block;
+        text-align: center;
+    }
+}
+
 /* Card **********************************************/
 .mdv-card {
     margin: 30px 0;

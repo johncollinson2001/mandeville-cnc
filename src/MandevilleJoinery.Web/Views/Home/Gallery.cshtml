@@ -33,19 +33,21 @@
 <section class="mdv-page-content">
     <div style="background-color:#fff;width:100%;padding: 20px;">
         <div class="row">
-            <div class="fotorama" data-nav="thumbs" data-width="100%">
-                @{
-                    var hostRoot = ((IHostingEnvironment)ViewContext.HttpContext.RequestServices.GetService(typeof(IHostingEnvironment))).ContentRootPath;
-                    var wwwRoot = System.IO.Path.Combine(hostRoot, "wwwroot");
-                    var gallery = System.IO.Path.Combine(wwwRoot, "images", "gallery");
-                }
-                    
-                @foreach (var file in Directory.GetFiles(gallery, "*_thumb.*"))
-                {
-                    @Html.Raw("<a href=\"" + file.Replace(wwwRoot, string.Empty).Replace('\\', '/').Replace(" ", "%20").Replace("_thumb", string.Empty) + "\">");
-                    @Html.Raw("<img src=" + file.Replace(wwwRoot, string.Empty).Replace('\\', '/').Replace(" ", "%20") + " />");
-                    @Html.Raw("</a>");
-                }                    
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="fotorama" data-nav="thumbs" data-width="100%">
+                    @{
+                        var hostRoot = ((IHostingEnvironment)ViewContext.HttpContext.RequestServices.GetService(typeof(IHostingEnvironment))).ContentRootPath;
+                        var wwwRoot = System.IO.Path.Combine(hostRoot, "wwwroot");
+                        var gallery = System.IO.Path.Combine(wwwRoot, "images", "gallery");
+                    }
+
+                    @foreach (var file in Directory.GetFiles(gallery, "*_thumb.*"))
+                    {
+                        <a href="@file.Replace(wwwRoot, string.Empty).Replace('\\', '/').Replace(" ", "%20").Replace("_thumb", string.Empty)">
+                            <img src="@file.Replace(wwwRoot, string.Empty).Replace('\\', '/').Replace(" ", "%20")" />
+                        </a>
+                    }
+                </div>
             </div>
         </div>
     </div>

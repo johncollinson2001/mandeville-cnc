@@ -273,3 +273,50 @@ footer .mdv-copyright {
 .mdv-card-content p {
     min-height: 85px;
 }
+
+/* Slider ********************************************/
+#mdv-slider {
+    position: relative;
+    overflow: hidden;
+    display: none;
+}
+
+#mdv-slider ul {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#mdv-slider ul li {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#mdv-slider-controls a.mdv-slider-control-prev, #mdv-slider-controls a.mdv-slider-control-next {
+    position: absolute;
+    padding: 4% 3%;
+    width: auto;
+    height: auto;
+    color: #666;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 32px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#mdv-slider-controls a.mdv-slider-control-prev:hover, #mdv-slider-controls a.mdv-slider-control-next:hover {
+    opacity: 1;
+    transition: all 0.2s ease;
+}
+
+#mdv-slider-controls a.mdv-slider-control-prev {
+    left: -35px;
+}
+
+#mdv-slider-controls a.mdv-slider-control-next {
+    right: -35px;
+}

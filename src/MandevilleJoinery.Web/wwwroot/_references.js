@@ -1,5 +1,6 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="js/site.js" />
+/// <reference path="js/slider.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/bootstrap-material-design/dist/js/material.js" />
 /// <reference path="lib/bootstrap-material-design/dist/js/ripples.js" />

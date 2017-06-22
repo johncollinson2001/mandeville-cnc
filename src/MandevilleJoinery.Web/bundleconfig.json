@@ -20,7 +20,8 @@
       "wwwroot/lib/bootstrap/dist/js/bootstrap.js",
       "wwwroot/lib/bootstrap-material-design/dist/js/material.js",
       "wwwroot/lib/bootstrap-material-design/dist/js/ripples.js",
-      "wwwroot/js/site.js"
+      "wwwroot/js/site.js",
+      "wwwroot/js/slider.js"
     ],
     // Optionally specify minification options
     "minify": {

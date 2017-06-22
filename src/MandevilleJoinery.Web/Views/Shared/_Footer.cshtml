@@ -1,0 +1,51 @@
+﻿<footer itemscope="" itemtype="http://schema.org/LocalBusiness">
+    <div class="container">
+        <div class="col-sm-6 mdv-footer-address" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+            <p>
+                <span itemprop="streetAddress">Unit 4 Townsend Buildings</span>,<br />
+                <span itemprop="addressLocality">Melbury Osmond</span>,<br />
+                <span itemprop="addressRegion">Dorset</span>,<br />
+                <span itemprop="addressCountry">UK</span>,<br />
+                <span itemprop="postalCode">DT2 0LP</span>
+            </p>
+            <p>
+                <strong>
+                    tel: <span itemprop="telephone">+44 (0)1935 83861</span><br />
+                    mob: <span itemprop="telephone">+44 (0)7974 793588</span><br />
+                    email: <a href="mailto:info@mandevillejoinery.com" itemprop="email">info@mandevillejoinery.com</a>
+                </strong>
+            </p>
+            <p>
+                Open <time itemprop="openingHours" datetime="Mo,Tu,We,Th,Fr 08:30-17:30">08:30 a.m. to 17:30 p.m. Monday to Friday</time>
+            </p>
+
+            <span itemprop="geo" itemscope="" itemtype="http://schema.org/GeoCoordinates">
+                <meta itemprop="latitude" content="50.865189">
+                <meta itemprop="longitude" content="-2.600136">
+            </span>
+        </div>
+
+        <div class="col-sm-6">
+            <nav>
+                <ul>
+                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li><a href="@Url.Action("AboutUs", "Home")">About Us</a></li>
+                    <li><a href="@Url.Action("Gallery", "Home")">Gallery</a></li>
+                    <li><a href="@Url.Action("GetAQuote", "Home")">Get a Quote</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    <li><a href="@Url.Action("TermsAndConditions", "Home")">Terms and Conditions</a></li>
+                </ul>
+            </nav>
+            <a href="http://www.fsb.org.uk" target="_blank" class="mdv-footer-fsb-link">
+                <img src="@Url.Content("~/images/fsblogo.png")" />
+            </a>
+        </div>
+
+        <div class="col-xs-12">
+            <p class="text-center mdv-copyright">
+                ©
+                <script>document.write(new Date().getFullYear())</script>, <span itemprop="name">Mandeville Joinery Co. Ltd.</span>
+            </p>
+        </div>
+    </div>
+</footer>

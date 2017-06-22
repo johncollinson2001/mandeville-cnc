@@ -82,6 +82,15 @@ namespace MandevilleJoinery.Web.Controllers
         }
 
         /// <summary>
+        /// GET: /termsandconditions
+        /// </summary>
+        [HttpGet]
+        public IActionResult TermsAndConditions()
+        {
+            return View();
+        }
+
+        /// <summary>
         /// POST: /getaquote
         /// </summary>
         [HttpPost]

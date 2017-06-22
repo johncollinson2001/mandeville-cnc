@@ -269,3 +269,7 @@ footer .mdv-copyright {
     text-transform: uppercase;
     font-weight: 500;
 }
+
+.mdv-card-content p {
+    min-height: 85px;
+}

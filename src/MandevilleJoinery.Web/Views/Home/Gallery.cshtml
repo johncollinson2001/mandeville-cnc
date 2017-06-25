@@ -11,10 +11,18 @@
 
 @section Styles {
     <link href="@Url.Content("~/lib/fotorama/fotorama.css")" rel="stylesheet">
+    <style>
+        .nav-pills li {
+            margin: 6px 0;
+            float: none;
+            display: inline-block;
+        }
+    </style>
 }
 
 @section Scripts {
     <script src="@Url.Content("~/lib/fotorama/fotorama.js")"></script>
+    <script src="@Url.Content("~/js/gallery.js")"></script>
 }
 
 <section class="mdv-page-header" style="background-image: url('/images/bg6.jpg')">
@@ -31,22 +39,29 @@
 </section>
 
 <section class="mdv-page-content">
-    <div style="background-color:#fff;width:100%;padding: 20px;">
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="fotorama" data-nav="thumbs" data-width="100%">
-                    @{
-                        var hostRoot = ((IHostingEnvironment)ViewContext.HttpContext.RequestServices.GetService(typeof(IHostingEnvironment))).ContentRootPath;
-                        var wwwRoot = System.IO.Path.Combine(hostRoot, "wwwroot");
-                        var gallery = System.IO.Path.Combine(wwwRoot, "images", "gallery");
-                    }
-
-                    @foreach (var file in Directory.GetFiles(gallery, "*_thumb.*"))
-                    {
-                        <a href="@file.Replace(wwwRoot, string.Empty).Replace('\\', '/').Replace(" ", "%20").Replace("_thumb", string.Empty)">
-                            <img src="@file.Replace(wwwRoot, string.Empty).Replace('\\', '/').Replace(" ", "%20")" />
-                        </a>
-                    }
+    <div class="container-fluid">
+        <div class="well">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text-center">
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="#" section="architectural">Architectural</a></li>
+                        <li><a href="#" section="conservatories">Conservatories</a></li>
+                        <li><a href="#" section="doors">Doors</a></li>
+                        <li><a href="#" section="furniture">Furniture</a></li>
+                        <li><a href="#" section="gates">Gates</a></li>
+                        <li><a href="#" section="green_oak">Green Oak</a></li>
+                        <li><a href="#" section="kitchens">Kitchens</a></li>
+                        <li><a href="#" section="restoration">Restoration</a></li>
+                        <li><a href="#" section="stairs">Stairs</a></li>
+                        <li><a href="#" section="windows">Windows</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div id="fotorama" data-nav="thumbs" data-width="100%">
+                        
+                    </div>
                 </div>
             </div>
         </div>

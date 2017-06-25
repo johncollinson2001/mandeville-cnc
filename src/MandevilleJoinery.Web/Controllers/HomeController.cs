@@ -2,6 +2,9 @@
 using MandevilleJoinery.Web.Models;
 using MandevilleJoinery.Web.Helpers;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using System.Collections.Generic;
 
 namespace MandevilleJoinery.Web.Controllers
 {
@@ -88,6 +91,32 @@ namespace MandevilleJoinery.Web.Controllers
         public IActionResult TermsAndConditions()
         {
             return View();
+        }
+
+        /// <summary>
+        /// GET: /GetGalleryDetails
+        /// </summary>
+        [HttpGet]
+        public IActionResult GetGalleryDetails(string section)
+        {
+            var hostRoot = ((IHostingEnvironment)HttpContext.RequestServices.GetService(typeof(IHostingEnvironment))).ContentRootPath;
+            var wwwRoot = Path.Combine(hostRoot, "wwwroot");
+            var sectionPath = Path.Combine(wwwRoot, "images", "gallery", section);
+
+            if (!Directory.Exists(sectionPath))
+                return new BadRequestResult();
+
+            var fileDetails = new List<object>();
+
+            foreach(var file in Directory.GetFiles(sectionPath, "*_thumb.*"))
+            {
+                fileDetails.Add(new {
+                    img = file.Replace(wwwRoot, string.Empty).Replace('\\', '/').Replace(" ", "%20").Replace("_thumb", string.Empty),
+                    thumb = file.Replace(wwwRoot, string.Empty).Replace('\\', '/').Replace(" ", "%20")
+                });
+            }
+
+            return Json(fileDetails);
         }
 
         /// <summary>

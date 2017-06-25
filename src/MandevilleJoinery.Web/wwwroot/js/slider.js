@@ -62,10 +62,10 @@
     // Set the initial widths
     setWidths();
 
-    // Auto start slider
+    // Auto start slider, every 10 secs
     setInterval(function () {
         moveRight();
-    }, 5000);
+    }, 10000);
 
     $slider.fadeIn();
 });

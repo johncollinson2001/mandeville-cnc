@@ -23,10 +23,24 @@ nav.navbar {
     padding-top: 25px;
 }
 
+nav a.navbar-brand {
+    padding-left: 55px !important;
+    background: url('../images/logo-sm.png') no-repeat;
+    background-size: 25px;
+    background-position-x: 20px;
+    background-position-y: 9px;
+}
+
 @media screen and (max-width:767px) {
     nav.navbar.mdv-navbar-menu-open {
         background-color: rgba(99, 0, 0, 1) !important;
         transition: background-color 0.5s;
+    }
+}
+
+@media screen and (min-width:993px) {
+    nav a.navbar-brand {
+        background-position-y: 13px;
     }
 }
 

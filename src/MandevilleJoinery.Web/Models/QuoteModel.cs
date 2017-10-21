@@ -34,25 +34,33 @@ namespace MandevilleJoinery.Web.Models
         public string EmailMessage {
             get
             {
-                var message = string.Format("{0} has requested a quote through mandevillejoinery.com.", Name);
+                var greeting =
+                    DateTime.Now.Hour >= 0 && DateTime.Now.Hour < 12 ? "Good morning"
+                    : DateTime.Now.Hour >= 12 && DateTime.Now.Hour < 5 ? "Good afternoon"
+                    : "Good evening";
+
+                var message = string.Format("{0} Team Mandeville", greeting);                
                 message += Environment.NewLine;
                 message += Environment.NewLine;
-                message += "The clients details are:";
+                message += string.Format("{0} has requested a quote through mandevillejoinery.com.", Name);
+                message += Environment.NewLine;
+                message += Environment.NewLine;
+                message += "=====================================================================================";
+                message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += string.Format("Email: {0}", Email);
                 message += Environment.NewLine;
                 message += Environment.NewLine;
-                message += string.Format("Telephome: {0}", Telephone);
+                message += string.Format("Telephone: {0}", Telephone);
 
                 if (BestContactTime != null)
                 {
-                message += Environment.NewLine;
+                    message += Environment.NewLine;
                     message += Environment.NewLine;
                     message += string.Format("Best contact time: {0}", BestContactTime);
                 }
 
-                message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += "Project Details:";
@@ -66,10 +74,6 @@ namespace MandevilleJoinery.Web.Models
                 message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += EmailHelpers.GetMotivationalQuote();
-                message += Environment.NewLine;
-                message += Environment.NewLine;
-                message += Environment.NewLine;
-                message += "Have a great day!";
 
                 return message;
             }

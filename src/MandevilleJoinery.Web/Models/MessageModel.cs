@@ -28,17 +28,19 @@ namespace MandevilleJoinery.Web.Models
         {
             get
             {
-                var message = string.Format("{0} has sent a message through mandevillejoinery.com.", Name);
+                var greeting = 
+                    DateTime.Now.Hour >= 0 && DateTime.Now.Hour < 12 ? "Good morning"
+                    : DateTime.Now.Hour >= 12 && DateTime.Now.Hour < 5 ? "Good afternoon"
+                    : "Good evening";
+
+                var message = string.Format("{0} Team Mandeville", greeting);
                 message += Environment.NewLine;
                 message += Environment.NewLine;
-                message += "The clients details are:";
+                message += string.Format("{0} has sent a message through mandevillejoinery.com.", Name);
                 message += Environment.NewLine;
                 message += Environment.NewLine;
-                message += string.Format("Email: {0}", Email);
+                message += "=====================================================================================";
                 message += Environment.NewLine;
-                message += Environment.NewLine;
-                message += Environment.NewLine;
-                message += "Message:";
                 message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += Message;
@@ -49,10 +51,6 @@ namespace MandevilleJoinery.Web.Models
                 message += Environment.NewLine;
                 message += Environment.NewLine;
                 message += EmailHelpers.GetMotivationalQuote();
-                message += Environment.NewLine;
-                message += Environment.NewLine;
-                message += Environment.NewLine;
-                message += "Have a great day!";
 
                 return message;
             }
